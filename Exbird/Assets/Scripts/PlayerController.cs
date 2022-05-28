@@ -6,6 +6,7 @@ public class PlayerController : MonoBehaviour
 {
     private Rigidbody rb;
     [SerializeField] private float jumpForce = 50f;
+    public bool isDead = false;
     
 
     // Start is called before the first frame update
@@ -18,7 +19,7 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0) & isDead == false)
         {
             rb.AddForce(0, jumpForce, 0,ForceMode.Impulse);
         }

@@ -9,11 +9,13 @@ public class Death : MonoBehaviour
     public MoveObjects[] moveObjects;
     public PlayerController playerController;
     Animator animator;
+    SphereCollider sphereCollider;
 
     // Start is called before the first frame update
     void Start()
     {
         animator = GetComponent<Animator>();
+        sphereCollider = GetComponent<SphereCollider>();
     }
 
     // Update is called once per frame
@@ -28,6 +30,10 @@ public class Death : MonoBehaviour
         {
             //Set the animation
             animator.SetTrigger("isDead");
+
+            //Set the collider as eagle death animation
+            Vector3 sphereCol = new Vector3(0, (float)0.17, (float)-0.63);
+            sphereCollider.center = sphereCol;
 
             //Make slow motion
             timeManager.DoSlowmotion();

@@ -5,7 +5,10 @@ using TMPro;
 
 public class Score : MonoBehaviour
 {
+    // Keep score 
     public int score = 0;
+
+    //Keep score text
     [SerializeField] TextMeshProUGUI textMeshProUGUI;
 
     
@@ -26,7 +29,9 @@ public class Score : MonoBehaviour
     {
         if (other.gameObject)
         {
+            //When you pass end of the pipes add score.
             score++;
+            //Convert it to string.
             textMeshProUGUI.text = "Score : " + score.ToString();
             
         }
